@@ -7,18 +7,18 @@
 */
 
 // handling logic error
-// $action= '';
+$action= '';
 // ---------
-// if (isset($_GET['do'])) {
-//     // record (a7tfzt) the get request in action variable
-//     $action = $_GET['do'];
-// }else{
-//     // echo 'the get request is not right' . '</br>';
-//     $action = 'index';
-// };
+if (isset($_GET['do'])) {
+    // record (a7tfzt) the get request in action variable
+    $action = $_GET['do'];
+}else{
+    // echo 'the get request is not right' . '</br>';
+    $action = 'index';
+};
 
 // short if
-$action = isset($_GET['do'])?$_GET['do']:'index';
+// $action = isset($_GET['do'])?$_GET['do']:'index';
 ?>
 <!-- include files operation -->
 <?php session_start(); ?>
@@ -29,10 +29,10 @@ $action = isset($_GET['do'])?$_GET['do']:'index';
 <?php if($action == 'index'): ?>
 <!-- show all users page -->
 <?php
-        $stmt= $connection->prepare('SELECT * from users where role=3') ;
-        $stmt->execute();
-        $users = $stmt->fetchAll();
-    ?>
+    $stmt= $connection->prepare('SELECT * from users where role=3') ;
+    $stmt->execute();
+    $users = $stmt->fetchAll();
+?>
 <div class="container">
     <table class="table table-secondary">
         <thead>

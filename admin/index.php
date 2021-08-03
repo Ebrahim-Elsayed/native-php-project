@@ -5,6 +5,7 @@
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $username = $_POST['admin_username'];
         $paswword = sha1($_POST['admin_password']);
+
         $stmt = $connection->prepare("SELECT * FROM users WHERE username=? AND password=? AND role !=3");
         $stmt->execute(array($username,$paswword));
         $datafetched = $stmt->fetch();
